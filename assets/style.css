@@ -1,0 +1,452 @@
+/* =====================================================
+   BRAND TOKENS
+===================================================== */
+:root {
+    --brand-50:  #eef2ff;
+    --brand-100: #e0e7ff;
+    --brand-500: #4f46e5;
+    --brand-600: #4338ca;
+    --ink-900: #0f172a;
+    --ink-700: #334155;
+    --ink-500: #64748b;
+    --surface: #ffffff;
+    --surface-muted: #f8fafc;
+    --border: #e5e7eb;
+    --success-bg: #dcfce7;
+    --warning-bg: #fef3c7;
+    --error-bg: #fee2e2;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+}
+
+/* =====================================================
+   GLOBAL BASE & RESET
+===================================================== */
+html, body, [class*="css"] {
+    font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+    background-color: #f1f4fa;
+    color: var(--ink-900);
+    line-height: 1.55;
+}
+
+/* Beri sedikit ruang napas & batasi lebar konten agar tidak terlalu lebar di layar besar */
+div.block-container {
+    padding-top: 1.6rem;
+    padding-bottom: 3rem;
+    max-width: 1180px;
+}
+
+/* =====================================================
+   SIDEBAR (TENANG & PROFESIONAL)
+===================================================== */
+section[data-testid="stSidebar"] {
+    background: var(--surface-muted);
+    border-right: 1px solid var(--border);
+    padding: 1.2rem 1rem;
+}
+
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--ink-700);
+}
+
+/* Highlight opsi navigasi yang sedang aktif */
+section[data-testid="stSidebar"] div[role="radiogroup"] label {
+    padding: 6px 10px;
+    border-radius: var(--radius-md);
+    margin-bottom: 2px;
+    transition: background 0.15s ease;
+}
+
+section[data-testid="stSidebar"] div[role="radiogroup"] label:has(input:checked) {
+    background: var(--brand-100);
+}
+
+/* =====================================================
+   PROGRESS STEPPER (Step 1..5)
+===================================================== */
+.stepper {
+    display: flex;
+    align-items: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 14px 18px;
+    margin-bottom: 1.4rem;
+}
+
+.stepper .step {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.stepper .dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+    background: #e2e8f0;
+    color: var(--ink-500);
+}
+
+.stepper .label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--ink-500);
+}
+
+.stepper .step.done .dot {
+    background: var(--brand-500);
+    color: #ffffff;
+}
+.stepper .step.done .label {
+    color: var(--ink-700);
+}
+
+.stepper .step.active .dot {
+    background: var(--brand-600);
+    color: #ffffff;
+    box-shadow: 0 0 0 4px var(--brand-100);
+}
+.stepper .step.active .label {
+    color: var(--brand-600);
+    font-weight: 700;
+}
+
+.stepper .connector {
+    flex: 1;
+    height: 2px;
+    background: #e2e8f0;
+    margin: 0 10px;
+    min-width: 16px;
+}
+.stepper .connector.done {
+    background: var(--brand-500);
+}
+
+@media (max-width: 900px) {
+    .stepper .label { display: none; }
+    .stepper .connector { min-width: 8px; margin: 0 4px; }
+}
+
+/* =====================================================
+   PAGE TITLE
+===================================================== */
+h1 {
+    font-size: 1.45rem;
+    font-weight: 600;
+    margin-bottom: 0.9rem;
+    color: #1e293b;
+}
+
+/* =====================================================
+   STEP TITLE (STEP 1–8)
+===================================================== */
+h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.4rem;
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+/* underline lembut */
+h3::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: #c7d2fe;
+    margin-top: 6px;
+    border-radius: 4px;
+}
+
+/* =====================================================
+   SECTION HEADER (Ringkasan, Dampak, dll)
+===================================================== */
+h4 {
+    font-size: 0.92rem;
+    font-weight: 600;
+    margin-top: 1.2rem;
+    margin-bottom: 0.3rem;
+    color: #334155;
+}
+
+/* =====================================================
+   GENERAL TEXT (SEMUA STEP)
+===================================================== */
+p, label, span {
+    font-size: 0.9rem;
+    color: #475569;
+    margin-bottom: 0.25rem;
+}
+
+/* =====================================================
+   BOLD TEXT (DIPERKECIL & HALUS)
+===================================================== */
+strong, b {
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+/* =====================================================
+   LIST / BULLET POINT
+===================================================== */
+ul, ol {
+    padding-left: 1.05rem;
+    margin-top: 0.3rem;
+}
+
+ul li, ol li {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #475569;
+    margin-bottom: 0.25rem;
+}
+
+/* =====================================================
+   INPUT / SELECT / UPLOADER
+===================================================== */
+div[data-testid="stSelectbox"] > div,
+div[data-testid="stFileUploader"] {
+    background: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+}
+
+/* =====================================================
+   METRIC (EXECUTIVE CARD)
+===================================================== */
+div[data-testid="metric-container"] {
+    background: var(--surface);
+    padding: 16px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+div[data-testid="metric-container"]:hover {
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.07);
+    transform: translateY(-1px);
+}
+
+div[data-testid="metric-container"] label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--ink-500);
+}
+
+div[data-testid="metric-container"] > div:nth-child(2) {
+    font-size: 1.32rem;
+    font-weight: 600;
+    color: var(--ink-900);
+}
+
+/* =====================================================
+   DATAFRAME
+===================================================== */
+div[data-testid="stDataFrame"] {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+/* =====================================================
+   ALERT (SUCCESS / WARNING / ERROR)
+===================================================== */
+div[data-testid="stAlert"] {
+    border-radius: var(--radius-md);
+    padding: 14px;
+    font-size: 0.85rem;
+    border: 1px solid transparent;
+}
+
+/* =====================================================
+   CHART CONTAINER
+===================================================== */
+div[data-testid="stLineChart"],
+div[data-testid="stBarChart"] {
+    background: var(--surface);
+    padding: 14px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+}
+
+/* =====================================================
+   EXPANDER (Panel Konfirmasi Kolom, dsb)
+===================================================== */
+div[data-testid="stExpander"] {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+}
+
+/* =====================================================
+   BUTTON
+===================================================== */
+button {
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    font-size: 0.85rem;
+    transition: filter 0.15s ease;
+}
+
+button[kind="primary"] {
+    background: var(--brand-500) !important;
+    border-color: var(--brand-500) !important;
+}
+
+button[kind="primary"]:hover {
+    filter: brightness(1.08);
+}
+
+/* =====================================================
+   DIVIDER — sedikit lebih halus dari default
+===================================================== */
+hr {
+    margin: 1.6rem 0;
+    border-color: var(--border);
+}
+
+/* =====================================================
+   CAPTION / FOOTNOTE
+===================================================== */
+small, .stCaption {
+    font-size: 0.74rem;
+    color: var(--ink-500);
+}
+
+/* =====================================================
+   STAT CARDS (ala dashboard eksekutif)
+   Angka besar berwarna sesuai urgensi + label kapital kecil.
+===================================================== */
+.stat-card-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 0.6rem 0 1.2rem 0;
+}
+
+.stat-card {
+    flex: 1 1 200px;
+    min-width: 170px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 18px 20px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.stat-card:hover {
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    transform: translateY(-1px);
+}
+
+.stat-card-value {
+    font-size: 2.1rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 6px;
+}
+
+.stat-card-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--ink-500);
+}
+
+.stat-card.tone-danger .stat-card-value  { color: #dc2626; }
+.stat-card.tone-warning .stat-card-value { color: #d97706; }
+.stat-card.tone-success .stat-card-value { color: #16a34a; }
+.stat-card.tone-neutral .stat-card-value { color: var(--brand-600); }
+
+.stat-card.tone-danger  { border-top: 3px solid #dc2626; }
+.stat-card.tone-warning { border-top: 3px solid #d97706; }
+.stat-card.tone-success { border-top: 3px solid #16a34a; }
+.stat-card.tone-neutral { border-top: 3px solid var(--brand-500); }
+
+/* Kartu lebar multi-segmen (mis. Null / Duplikat / Total Tidak Ideal digabung 1 kartu) */
+.stat-card-wide {
+    flex: 2 1 460px;
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    padding: 18px 20px;
+}
+
+.stat-card-segment {
+    flex: 1 1 0;
+    padding: 0 18px;
+}
+
+.stat-card-segment:first-child {
+    padding-left: 0;
+}
+
+.stat-card-segment:last-child {
+    padding-right: 0;
+}
+
+.stat-card-divider {
+    width: 1px;
+    background: var(--border);
+    margin: 2px 0;
+}
+
+.stat-card-subvalue {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink-500);
+}
+
+@media (max-width: 700px) {
+    .stat-card { flex: 1 1 45%; }
+    .stat-card-value { font-size: 1.6rem; }
+    .stat-card-wide { flex: 1 1 100%; flex-direction: column; }
+    .stat-card-divider { width: auto; height: 1px; margin: 10px 0; }
+    .stat-card-segment { padding: 0 !important; }
+}
+
+/* =====================================================
+   INFO / WARNING BANNER (garis aksen kiri, ala dashboard korporat)
+===================================================== */
+.info-banner {
+    border-left: 4px solid var(--brand-500);
+    background: var(--brand-50);
+    color: var(--ink-700);
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 0.86rem;
+    margin: 0.6rem 0 1.1rem 0;
+    line-height: 1.5;
+}
+
+.info-banner.tone-warning {
+    border-left-color: #d97706;
+    background: #fffbeb;
+}
+
+.info-banner.tone-danger {
+    border-left-color: #dc2626;
+    background: #fef2f2;
+}
+
+.info-banner.tone-info {
+    border-left-color: var(--brand-500);
+    background: var(--brand-50);
+}
+
+.info-banner b { color: inherit; font-size: inherit; }
